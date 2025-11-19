@@ -43,4 +43,6 @@ Route::get('/traffic-data', function () {
         ]
     ];
     broadcast(new TrafficConfig($message));
+
+    return response()->json($message);
 });
