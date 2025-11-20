@@ -18,28 +18,54 @@ Route::get('/traffic-data', function () {
             "id" => Str::uuid7(),
             "location_name" => "pandegiling barat",
             "schedule" => [
-                "id" => Str::uuid7(),
-                "start_date" => now()->format("Y-m-d H:i:s"),
-                "end_date" => now()->subDays(2)->format("Y-m-d H:i:s"),
-                "rules" => [
-                    [
-                        "id" => Str::uuid7(),
-                        "start_time" => '07:00:00',
-                        "end_time" =>  '10:00:00',
-                        "red_light" => 60000,
-                        "yellow_light" => 10000,
-                        "green_light" => 60000
-                    ],
-                    [
-                        "id" => Str::uuid7(),
-                        "start_time" => '07:00:00',
-                        "end_time" =>  '10:00:00',
-                        "red_light" => 120000,
-                        "yellow_light" => 5000,
-                        "green_light" => 60000
+                [
+                    "id" => Str::uuid7(),
+                    "start_date" => now()->format("Y-m-d H:i:s"),
+                    "end_date" => now()->subDays(2)->format("Y-m-d H:i:s"),
+                    "rules" => [
+                        [
+                            "id" => Str::uuid7(),
+                            "start_time" => '07:00:00',
+                            "end_time" =>  '10:00:00',
+                            "red_light" => 60000,
+                            "yellow_light" => 10000,
+                            "green_light" => 60000
+                        ],
+                        [
+                            "id" => Str::uuid7(),
+                            "start_time" => '07:00:00',
+                            "end_time" =>  '10:00:00',
+                            "red_light" => 120000,
+                            "yellow_light" => 5000,
+                            "green_light" => 60000
+                        ]
+                    ]
+                ],
+                [
+                    "id" => Str::uuid7(),
+                    "start_date" => now()->subDays(3)->format("Y-m-d H:i:s"),
+                    "end_date" => now()->subDays(4)->format("Y-m-d H:i:s"),
+                    "rules" => [
+                        [
+                            "id" => Str::uuid7(),
+                            "start_time" => '07:00:00',
+                            "end_time" =>  '10:00:00',
+                            "red_light" => 60000,
+                            "yellow_light" => 10000,
+                            "green_light" => 60000
+                        ],
+                        [
+                            "id" => Str::uuid7(),
+                            "start_time" => '07:00:00',
+                            "end_time" =>  '10:00:00',
+                            "red_light" => 120000,
+                            "yellow_light" => 5000,
+                            "green_light" => 60000
+                        ]
                     ]
                 ]
             ]
+            
         ]
     ];
     broadcast(new TrafficConfig($message));
